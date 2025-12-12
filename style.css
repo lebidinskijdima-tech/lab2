@@ -1,4 +1,4 @@
-/* === БАЗОВІ СТИЛІ ДЛЯ ОБОХ СТОРІНОК === */
+
 
 * {
     margin: 0;
@@ -14,7 +14,7 @@ body {
     min-height: 100vh;
 }
 
-/* === FLEXBOX #1: ГОЛОВНИЙ ХЕДЕР + НАВІГАЦІЯ === */
+
 
 header {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
@@ -43,7 +43,7 @@ nav {
     opacity: 0.9;
 }
 
-/* FLEXBOX для списку навігації */
+
 nav ul {
     list-style: none;
     display: flex;
@@ -69,7 +69,7 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
-/* === ОСНОВНИЙ КОНТЕНТ === */
+
 
 main {
     max-width: 1200px;
@@ -100,7 +100,7 @@ h3 {
     font-size: clamp(1.15rem, 2.5vw, 1.5rem);
 }
 
-/* === GRID #1: БІОГРАФІЯ (Mobile-First) === */
+
 
 .bio-content {
     display: grid;
@@ -137,7 +137,7 @@ cite {
     font-size: 0.9rem;
 }
 
-/* === GRID #2: ФОТОГАЛЕРЕЯ (Mobile-First) === */
+
 
 .photo-gallery {
     display: grid;
@@ -183,7 +183,7 @@ cite {
     text-decoration: none;
 }
 
-/* === ТАБЛИЦЯ НАГОРОД === */
+
 
 .table-wrapper {
     overflow-x: auto;
@@ -252,7 +252,7 @@ mark {
     border-radius: 3px;
 }
 
-/* === CONTACT PAGE - ДОДАТКОВІ СТИЛІ === */
+
 
 .container {
     max-width: 1400px;
@@ -284,7 +284,7 @@ mark {
     transform: translateY(-2px);
 }
 
-/* FLOAT для фото що обтікає текст */
+
 
 .info-section {
     margin-top: 1.5rem;
@@ -302,7 +302,7 @@ mark {
     clear: both;
 }
 
-/* FLEXBOX #2: Inline images */
+
 
 .inline-images {
     display: flex;
@@ -318,30 +318,40 @@ mark {
     border-radius: 10px;
 }
 
-/* FLEXBOX #3: Повторювані фото */
+
 
 .repeat-section {
     margin-top: 1.5rem;
+    padding: 0.5rem;
 }
 
 .repeat-photos-row {
     display: flex;
     justify-content: center;
-    margin: 1.5rem auto 0;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0;
+    margin: 0 auto;
+    padding: 0;
     width: fit-content;
-    flex-wrap: wrap;
-    gap: 0.5rem;
 }
 
 .repeat-photos-row img {
+    display: block;
     width: 120px;
+    height: auto;
     border-radius: 10px;
-    margin-left: 0;
     border: 3px solid #fff;
     box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+    flex-shrink: 0;
+    margin-left: -40px;
 }
 
-/* FLEXBOX #4: Липке меню */
+.repeat-photos-row img:first-child {
+    margin-left: 0;
+}
+
+
 
 #sticky-menu {
     position: sticky;
@@ -353,8 +363,10 @@ mark {
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
 #sticky-menu a {
@@ -366,6 +378,8 @@ mark {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     transition: all 0.3s ease;
     text-align: center;
+    white-space: nowrap;
+    font-size: 0.9rem;
 }
 
 #sticky-menu a:hover {
@@ -373,7 +387,7 @@ mark {
     box-shadow: 0 4px 12px rgba(102,126,234,0.5);
 }
 
-/* GRID #3: Форми (Mobile-First) */
+
 
 .forms-container {
     display: grid;
@@ -384,14 +398,14 @@ mark {
 
 .form-section {
     background: white;
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
 }
 
 .form-section:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
 }
 
 .form-section.registration {
@@ -407,7 +421,7 @@ mark {
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 label {
@@ -415,7 +429,6 @@ label {
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: #333;
-    font-size: 0.95rem;
 }
 
 input[type="text"],
@@ -426,7 +439,7 @@ input[type="date"],
 select,
 textarea {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.8rem;
     border: 2px solid #ddd;
     border-radius: 8px;
     font-size: 1rem;
@@ -451,14 +464,14 @@ input:invalid:not(:placeholder-shown) {
 }
 
 textarea {
-    min-height: 120px;
+    min-height: 150px;
     resize: vertical;
 }
 
 .radio-group,
 .checkbox-group {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -476,8 +489,8 @@ input[type="checkbox"] {
 }
 
 .avatar-circle {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     border: 3px solid #667eea;
     margin: 0 auto 1rem;
@@ -488,8 +501,8 @@ input[type="checkbox"] {
 }
 
 .avatar-circle svg {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     fill: #999;
 }
 
@@ -497,7 +510,7 @@ button,
 .btn {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 0.75rem 2rem;
+    padding: 0.8rem 2rem;
     border: none;
     border-radius: 8px;
     font-size: 1rem;
@@ -505,7 +518,6 @@ button,
     cursor: pointer;
     transition: all 0.3s ease;
     display: inline-block;
-    width: 100%;
 }
 
 button:hover,
@@ -520,24 +532,22 @@ button:active {
 
 .page-description {
     background: white;
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 15px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-/* Адаптивні зображення */
+
 img {
     max-width: 100%;
     height: auto;
 }
 
-/* ========================================== */
-/* === МЕДІА-ЗАПИТ #1: ПЛАНШЕТИ (768px+) === */
-/* ========================================== */
+
 
 @media (min-width: 768px) {
-    /* FLEXBOX: Навігація горизонтально */
+    
     nav {
         flex-direction: row;
         justify-content: space-between;
@@ -566,31 +576,33 @@ img {
     }
 
     section {
-        padding: 2rem;
+        padding: 2.5rem;
         margin: 2rem 0;
     }
 
-    /* GRID: Біографія - 2 колонки */
+   
     .bio-content {
         grid-template-columns: 1fr 2fr;
         gap: 2rem;
     }
 
-    /* GRID: Фотогалерея - 2 колонки */
+
     .photo-gallery {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
 
-    /* FLEXBOX: Липке меню горизонтально */
+
     #sticky-menu {
-        flex-direction: row;
-        justify-content: center;
+        flex-wrap: nowrap;
         gap: 1rem;
-        padding: 1rem 2rem;
+        padding: 0.75rem 1rem;
     }
 
-    /* GRID: Форми - 2 колонки */
+    #sticky-menu a {
+        font-size: 1rem;
+    }
+
     .forms-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
@@ -600,7 +612,7 @@ img {
         grid-column: 1 / -1;
     }
 
-    /* FLEXBOX: Header content горизонтально */
+ 
     .header-content {
         flex-direction: row;
         justify-content: space-between;
@@ -611,34 +623,27 @@ img {
         padding: 2rem;
     }
 
-    button {
-        width: auto;
-        min-width: 200px;
-    }
-
     th, td {
         padding: 1rem;
         font-size: 1rem;
     }
 
-    .avatar-circle {
-        width: 100px;
-        height: 100px;
+   
+    .repeat-section {
+        padding: 1rem;
     }
 
-    .avatar-circle svg {
-        width: 50px;
-        height: 50px;
-    }
-
-    /* FLEXBOX: Повторювані фото з накладанням */
     .repeat-photos-row {
         gap: 0;
+        max-width: 600px;
     }
 
     .repeat-photos-row img {
         width: 150px;
+        max-width: 150px;
         margin-left: -40px;
+        border: 3px solid #fff;
+        flex-shrink: 0;
     }
 
     .repeat-photos-row img:first-child {
@@ -650,17 +655,9 @@ img {
     }
 }
 
-/* ========================================== */
-/* === МЕДІА-ЗАПИТ #2: ДЕСКТОП (1024px+) === */
-/* ========================================== */
-
 @media (min-width: 1024px) {
     nav ul {
         gap: 2rem;
-    }
-
-    section {
-        padding: 2.5rem;
     }
 
     /* GRID: Фотогалерея - 3 колонки */
@@ -670,7 +667,7 @@ img {
 
     /* GRID: Форми - автоматична адаптація */
     .forms-container {
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     }
 
     .photo-item img {
@@ -683,17 +680,15 @@ img {
 
     .repeat-photos-row img {
         width: 180px;
+        max-width: 180px;
         margin-left: -50px;
+        flex-shrink: 0;
     }
 
     h2 {
         font-size: 2rem;
     }
 }
-
-/* ============================================= */
-/* === МЕДІА-ЗАПИТ #3: ВЕЛИКІ ЕКРАНИ (1200px+) === */
-/* ============================================= */
 
 @media (min-width: 1200px) {
     main {
@@ -702,9 +697,5 @@ img {
 
     .photo-item:hover {
         transform: scale(1.05);
-    }
-
-    .form-section:hover {
-        transform: translateY(-5px);
     }
 }
